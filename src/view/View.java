@@ -30,6 +30,11 @@ public class View
 		
 		public void printModelo(Modelo modelo)
 		{
+			for(int i=0; i<modelo.darTamano()-1;i++)
+			{
+				System.out.println("este representa el elemento "+modelo.darElemento(i));
+			}
+			
 			// TODO implementar
 		}
 }

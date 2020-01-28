@@ -29,7 +29,10 @@ public class Modelo {
 	{
 		datos = new ArregloDinamico(capacidad);
 	}
-	
+	public String darElemento(int i)
+	{
+		return datos.darElemento(i);
+	}
 	/**
 	 * Servicio de consulta de numero de elementos presentes en el modelo 
 	 * @return numero de elementos presentes en el modelo
