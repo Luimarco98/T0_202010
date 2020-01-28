@@ -7,38 +7,38 @@ package model.data_structures;
  * @author Fernando De la Rosa
  *
  */
-public class ArregloDinamico implements IArregloDinamico {
+public class ArregloDinamico <T extends Comparable<T>> implements IArregloDinamico<T> {
 		/**
 		 * Capacidad maxima del arreglo
 		 */
-        private int tamanoMax;
+        private Integer tamanoMax;
 		/**
 		 * Numero de elementos presentes en el arreglo (de forma compacta desde la posicion 0)
 		 */
-        private int tamanoAct;
+        private Integer tamanoAct;
         /**
          * Arreglo de elementos de tamaNo maximo
          */
-        private String elementos[ ];
+        private Integer elementos[ ];
 
         /**
          * Construir un arreglo con la capacidad maxima inicial.
          * @param max Capacidad maxima inicial
          */
-		public ArregloDinamico( int max )
+		public ArregloDinamico( Integer max )
         {
-               elementos = new String[max];
+               elementos = new Integer [max];
                tamanoMax = max;
                tamanoAct = 0;
         }
         
-		public void agregar( String dato )
+		public void agregar( Integer dato )
         {
                if ( tamanoAct == tamanoMax )
                {  // caso de arreglo lleno (aumentar tamaNo)
                     tamanoMax = 2 * tamanoMax;
-                    String [ ] copia = elementos;
-                    elementos = new String[tamanoMax];
+                    Integer[ ] copia = elementos;
+                    elementos = new Integer[tamanoMax];
                     for ( int i = 0; i < tamanoAct; i++)
                     {
                      	 elementos[i] = copia[i];
@@ -57,8 +57,8 @@ public class ArregloDinamico implements IArregloDinamico {
 			return tamanoAct;
 		}
 
-		public String darElemento(int i) {
-			String elemento=null;
+		public Integer darElemento(Integer i) {
+			Integer elemento=null;
 			for(i=0;i<elementos.length;i++)
 				{
 				if(elementos[i]!=null)
@@ -76,9 +76,9 @@ public class ArregloDinamico implements IArregloDinamico {
 			return elemento;
 		}
 
-		public String buscar(String dato) {
+		public Integer buscar(Integer dato) {
 			// TODO implementar
-			String buscado=null;
+			Integer buscado=null;
 			boolean encontre=false;
 			for(int i=0;i<elementos.length&&!encontre;i++)
 			{
@@ -94,9 +94,9 @@ public class ArregloDinamico implements IArregloDinamico {
 			return buscado;
 		}
 
-		public String eliminar(String dato) {
+		public Integer eliminar(Integer dato) {
 			// TODO implementar
-			String eliminado=null;
+			Integer eliminado=null;
 			for(int i=0;i<tamanoAct;i++)
 			{
 			  if(elementos[i].compareTo(dato)==0)
